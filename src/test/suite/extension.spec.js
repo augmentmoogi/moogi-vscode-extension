@@ -10,7 +10,9 @@ console.log(`Process ID: ${process.pid}`);
 // jest.requireActual();
 // jest.resetModules();
 // const vscode = jest.requireActual('vscode');
-const vscode = require('vscode');
+
+// console.log(global.vscode); // this works.. so the environment is applied well.
+const vscode = require('moogi');
 // import * as myExtension from '../../extension';
 
 

@@ -12,7 +12,8 @@ const __dirname = dirname(__filename);
 async function main() {
   try {
     const extensionDevelopmentPath = path.resolve(__dirname);
-    const extensionTestsPath = path.resolve(__dirname, './jest-e2e-runner.js');
+    // const extensionTestsPath = path.resolve(__dirname, './jest-e2e-runner.js');
+    const extensionTestsPath = path.resolve(__dirname, './out/test/suite/jest-runner.js');
     const vscodeExecutablePath = await downloadAndUnzipVSCode('insiders');
 
 

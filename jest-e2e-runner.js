@@ -15,31 +15,37 @@ const fs = require('fs');
   // console.log(file);
 // });
 
-// console.log("I am in jest runner");
+console.log("I am in jest runner");
 // console.log(`This is my Process ID: ${process.pid}`);
 
 const options = {
   // Specify Jest configuration options here
   // You can also add a Jest config file path if needed
   // testMatch: ['<rootDir>/out/**/*.test.js'], // Adjust according to your test structure
-  testMatch: ['<rootDir>/out/test/**/*.test.js'], // Adjust according to your test structure
+  testMatch: ['<rootDir>/src/test/**/*.spec.js'], // Adjust according to your test structure
   // runInBand: true,
 
-  modulePaths: [
-    "<rootDir>",
-  ],
+  // modulePaths: [
+  //   "<rootDir>",
+  // ],
   // moduleDirectories: [
   //   "node_modules"
   // ],
+  moduleFileExtensions: [
+    "js",
+  ],
+  verbose: true,
   moduleNameMapper: {
-    "^vscode$": "<rootDir>/vscode-module.js"
+    // moogi: path.join(__dirname, "src", "test", "vscode-module.js"),
+    moogi: "<rootDir>/src/test/vscode-module.js",
   },
+  testEnvironment: "./vscode-environment.js",
 };
 
 console.log("running");
 
 module.exports.run = () => {
-runCLI(options, [process.cwd()]).then(result => {
+runCLI( options, [process.cwd()]).then(result => {
   console.log(result);
   if (result.success) {
     console.log("Tests ran successfully!");
